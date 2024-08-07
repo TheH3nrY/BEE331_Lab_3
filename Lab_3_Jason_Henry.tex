@@ -63,25 +63,40 @@
 \nsection{Design Objective}
 In this section we use the CD4007 IC pakage as a NAND logic gate then testing it with two inputs to create a truth table for the transistors.
 
-\nsection{Circuit Diagram and Consturction}
+\nsection{Circuit Design Outline}
 \begin{figure}[hp!]
 	\centering
 	\subfloat[\centering NAND Circuit Transistors]{{\includegraphics[width=9cm]{20240731_124701}}}
 	\subfloat[\centering NAND Gate From CMOS Transistors]{{\includegraphics[width=9cm]{NAND_Circuit}}}
 \end{figure}
-\nsection{Measurements}
 
-Operation: Describe a simple description of your NAND gate and how it works transistor by transistor (M1, M2, M3, and M4) = Table 1. 
-In the CMOS gate M1 and M3 are PMOSFETs while M2 and M4 are NMOSFETs. Input A controls M1 and M2 while input B controls M3 and M4.\\
+\nsection{Operation}
+\emph{Describe a simple description of your NAND gate and how it works transistor by transistor (M1, M2, M3, and M4) = Table 1. 
+In the CMOS gate M1 and M3 are PMOSFETs while M2 and M4 are NMOSFETs. Input A controls M1 and M2 while input B controls M3 and M4.}\\\\
 When both inputs are off M2 and M4 are off meaning that the output is not connected to ground. At the same time M1 and M3 are on since they are PMOS because the potential difference of the drain is higher than the source. This creates an output of 5V, which is our on-state voltage, and is the same as VDD. \\
 When only one input is on one of the PMOS transistors is on and only one of the NMOS transistors is on. This completes the circuit from VDD to the output giving us an on state and a 5V output since the circuit is not completed to ground. Only one of the PMOS transistors needs to be on for this connection because they are connected in parallel so either one of them can connect the output to VDD.
 When both inputs are on the NMOS transistors M2 and M4 and the PMOS transistors are off.  This creates a connection between the output and ground giving us an off value of 0V at the output. \\
 
-1.2.2 Testing: Describe your testing results and insert your Truth Table with voltage outputs and logic levels = ditto. \\
-Our results showed that when the two inputs were set to 5V or “on” we saw our output as 0V or “off”. All other inputs showed the output as 5V which is “on”
-1.2.3 Describe your test plan and how you would test the NAND gate with two synchronized function generator channels. If you have performed this test, paste a scope shot of the output of the NAND gate with each logic level notated.
+\nsection{Testing}
+\emph{Describe your testing results and insert your Truth Table with voltage outputs and logic levels = ditto.}\\
+Our results showed that when the two inputs were set to 5V or “on” we saw our output as 0V or “off”. All other inputs showed the output as 5V which is “on”\\
+This high-low relationship for $V_{out}$ is properly represented as an ideal NAND-gate. Seen in the table and truth table, with Spice sim.
+\pagebreak
 
+\begin{figure}[hp!]
+	\centering
+	\subfloat[\centering Gate \& Spice Sim]{{\includegraphics[width=18cm]{Screenshot 2024-08-07 0423451}}}
+\end{figure}
 
+\nsection{Describing}
+\emph{Describe your test plan and how you would test the NAND gate with two synchronized function generator channels. \textbf{If you have performed this test, paste a scope shot of the output of the NAND gate with each logic level notated.}}\\
+Disclaimer: Because the text says "if", we did not.\\\\
+When measuring the circuit from the above, which we forgot to take oscilloscope screenshots for - we designed the circuit and developed two separate square-waves that reprsented high \& low. $V_{out}$, we had 3 voltmeters set up - and alternated between the truth table values above; $2^2$ values.
+
+\begin{figure}[hp!]
+	\centering
+	\subfloat[\centering NAND Table]{{\includegraphics[width=18cm]{Screenshot 2024-08-07 060220}}}
+\end{figure}
 
 %NOR Section
 \nchapter{CMOS NOR Gate}
@@ -95,14 +110,42 @@ In this section we use the CD4007 IC pakage as a NOR logic gate then testing it 
 \end{figure}
 
 \nsection{Measurements}
-Design: draw your schematic, how you connect parts of the CD4007, and describe a how it works transistor by transistor (M1, M2, M3, and M4) = Table 2 
+\nsection{Design}
+Draw your schematic, how you connect parts of the CD4007, and describe a how it works transistor by transistor (M1, M2, M3, and M4) = Table 2 
 In the CMOS gate M1 and M3 are PMOSFETs while M2 and M4 are NMOSFETs. Input A controls M3 and M4 while input B controls M1 and M2.\\
 When both inputs are off both PMOS transistors are on because there is enough negative difference between drain and source. There is not enough difference for the NMOS transistors to turn on, so they remain in the off state. This makes the output at 5V or in the “on” state because the circuit is connected to VDD through the PMOS network.
 When only one input is on one of the PMOS transistors is on and only one of the NMOS transistors is on. This completes the circuit from ground to the output giving us an on state and a 0V. Only one of the NMOS transistors needs to be on for this connection because they are connected in parallel so either one of them can connect the output to ground.\\
 When both inputs are on the NMOS transistors M2 and M4 are on and the PMOS transistors are off.  This creates a connection between the output and ground giving us an off value of 0V at the output. \\
 
-Static test: fill in states in Table 1, ditto \\
-Dynamic test: stimulate the circuit with two square waves, and capture the results.
+\nsection{Static Test}
+Fill in states in Table 1, ditto \\\\
+Same thing, just with a NOR-Gate. Simple-as.
+\nsection{Dynamic Test}
+Stimulate the circuit with two square waves, and capture the results.
+\newpage
+%Spice Sim
+\begin{figure}[hp!]
+	\centering
+	\subfloat[\centering Gate \& Spice Sim]{{\includegraphics[width=18cm]{Screenshot 2024-08-07 042345}}}
+\end{figure}
 
+\nsection{Describing}
+\emph{Describe your test plan and how you would test the NAND gate with two synchronized function generator channels.}
+
+\begin{figure}[hp!]
+	\centering
+	\subfloat[\centering NOR Table]{{\includegraphics[width=18cm]{Screenshot 2024-08-07 060220}}}
+\end{figure}
+
+\newpage
+\nsection{Bibliography}
+\textbf{Cited:}\\
+\begin{itemize}
+	\item Lab 1 Manual
+	\item Sedra, Adel, and Kenneth Smith. Microelectronic Circuits. S.L., Oxford Univ Press Us, 2019.
+\end{itemize}
+\begin{figure}[!h]
+	\subfloat[It didn't get easier. We just got better.]{\includegraphics[width=\linewidth]{__penance_arknights_drawn_by_duya_ehouhouohahaha__c12b4a5221fa078ded1b9fc3ca433f0b}}
+\end{figure}
 
 \end{document}

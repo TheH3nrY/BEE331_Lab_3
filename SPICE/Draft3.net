@@ -1,0 +1,14 @@
+* C:\Users\dinhj\Desktop\Academia Repository\BEE Repository\BEE 331 Microelectronics and Circuits\Labs\BEE331_Lab_3\BEE331_Lab_3\SPICE\Draft3.asc
+M1 N001 N003 Vout Vout PMOS
+M2 N001 N002 Vout Vout PMOS
+M3 Vout N003 N004 N004 NMOS
+M4 N004 N002 0 0 NMOS
+V1 N001 0 5
+V§AInput N003 NC_01 PULSE(5 0 0 0.01m 0.01m 1m 2m)
+V§BInput N002 NC_02 PULSE(5 0 0 0.01m 0.01m 0.5m 2m)
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\Users\dinhj\AppData\Local\LTspice\lib\cmp\standard.mos
+.tran 5ms
+.backanno
+.end
